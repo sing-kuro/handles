@@ -23,10 +23,10 @@ TEST(handles_test, insert_erase)
     unsigned int e = strings.insert("e");
     EXPECT_EQ(e, b);
     EXPECT_EQ(strings[e], "e");
-    auto all = strings.all_handles();
-    EXPECT_EQ(all.size(), 4);
-    EXPECT_NE(std::ranges::find(all, a), all.end());
-    EXPECT_NE(std::ranges::find(all, c), all.end());
-    EXPECT_NE(std::ranges::find(all, d), all.end());
-    EXPECT_NE(std::ranges::find(all, e), all.end());
+    auto [begin, end] = strings.all_handles();
+    EXPECT_EQ(end - begin, 4);
+    EXPECT_NE(std::ranges::find(begin, end, a), end);
+    EXPECT_NE(std::ranges::find(begin, end, c), end);
+    EXPECT_NE(std::ranges::find(begin, end, d), end);
+    EXPECT_NE(std::ranges::find(begin, end, e), end);
 }

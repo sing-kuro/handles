@@ -13,6 +13,7 @@
 #ifndef HANDLES_HANDLES_HPP
 #define HANDLES_HANDLES_HPP
 #include <concepts>
+#include <utility>
 #include <vector>
 
 namespace hdl
@@ -146,10 +147,13 @@ public:
         return data_.size();
     }
 
-    std::vector<Handle> all_handles() const
+    ///
+    /// @brief Get all handles.
+    /// @return A pair of iterators to the beginning and end of the handles.
+    ///
+    std::pair<typename std::vector<Handle>::const_iterator, typename std::vector<Handle>::const_iterator> all_handles() const
     {
-        std::vector<Handle> ret(handles_.begin(), handles_.begin() + data_.size());
-        return ret;
+        return { handles_.begin(), handles_.begin() + data_.size() };
     }
 
 private:

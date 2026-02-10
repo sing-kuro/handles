@@ -136,6 +136,7 @@ public:
     {
         data_.reserve(new_cap);
         indices_.reserve(new_cap);
+        handles_.reserve(new_cap);
     }
 
     ///

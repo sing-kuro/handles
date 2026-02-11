@@ -46,7 +46,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(handles)
 
 add_executable(YourApp main.cpp)
-target_link_libraries(YourApp PRIVATE handles::handles)
+target_link_libraries(YourApp PUBLIC handles)
 ```
 
 ## Usage
